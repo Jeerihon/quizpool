@@ -10,6 +10,7 @@ func CreateAttendancePoll(bot *tgbotapi.BotAPI, update tgbotapi.Update, quizEven
 			ChatID:           update.CallbackQuery.Message.Chat.ID,
 			ReplyToMessageID: update.CallbackQuery.Message.MessageID,
 		},
+		Question: "Вы идете на игру?",
 		Options: []string{
 			"Иду",
 			"Не иду",
