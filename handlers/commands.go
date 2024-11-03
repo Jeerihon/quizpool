@@ -11,8 +11,7 @@ func Commands(bot *tgbotapi.BotAPI, update tgbotapi.Update) {
 		services.Start(bot, update)
 	case "help":
 		services.Help(bot, update)
-
-	case "get_quiz_events":
-		services.GetQuizEvents(bot, update)
+	case "schedule":
+		services.GetSchedule(bot, update)
 	}
 }

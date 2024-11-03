@@ -1,10 +1,11 @@
 package models
 
 type QuizEvent struct {
-	QuizNumber  int    `json:"quiz_number"`
-	Date        string `json:"date"`
-	Title       string `json:"title"`
-	Link        string `json:"link"`
-	Description string `json:"description"`
-	Time        string `json:"time"`
+	Title      string `json:"title"`
+	QuizNumber string `json:"quiz_number"`
+	Place      string `json:"place"`
+	Info       string `json:"info"`
+	Link       string `json:"link"`
+	Date       string `json:"date"`
+	Time       string `json:"time"`
 }

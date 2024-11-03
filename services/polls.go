@@ -7,9 +7,9 @@ import (
 func CreateAttendancePoll(bot *tgbotapi.BotAPI, update tgbotapi.Update, quizEventId string) {
 	poll := tgbotapi.SendPollConfig{
 		BaseChat: tgbotapi.BaseChat{
-			ChatID: update.CallbackQuery.Message.Chat.ID,
+			ChatID:           update.CallbackQuery.Message.Chat.ID,
+			ReplyToMessageID: update.CallbackQuery.Message.MessageID,
 		},
-		Question: "Пойдете ли вы на мероприятие?",
 		Options: []string{
 			"Иду",
 			"Не иду",
