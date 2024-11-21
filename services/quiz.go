@@ -38,6 +38,28 @@ func GetSchedule(bot *tgbotapi.BotAPI, update tgbotapi.Update) {
 	}
 }
 
+func CreateAttendancePoll(bot *tgbotapi.BotAPI, update tgbotapi.Update, quizEventId string) {
+	poll := tgbotapi.SendPollConfig{
+		BaseChat: tgbotapi.BaseChat{
+			ChatID:           update.CallbackQuery.Message.Chat.ID,
+			ReplyToMessageID: update.CallbackQuery.Message.MessageID,
+		},
+		Question: "Вы идете на игру?",
+		Options: []string{
+			"Иду",
+			"Не иду",
+			"Скорее иду",
+			"Скорее не иду",
+		},
+		IsAnonymous:     false,
+		Type:            "quiz",
+		CorrectOptionID: 0,
+	}
+	if _, err := bot.Send(poll); err != nil {
+		panic(err)
+	}
+}
+
 func ParseScheduleEvents(url string, selector string) []models.QuizEvent {
 	res, err := http.Get(url)
 	defer res.Body.Close()

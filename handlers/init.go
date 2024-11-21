@@ -14,7 +14,7 @@ func Init(bot *tgbotapi.BotAPI) {
 	for update := range updates {
 		if update.CallbackQuery != nil {
 			Callbacks(bot, update)
-		} else if update.Message.IsCommand() {
+		} else if update.Message != nil && update.Message.IsCommand() {
 			Commands(bot, update)
 		}
 	}
